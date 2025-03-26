@@ -1,0 +1,103 @@
+Business Objective,Campaign Objective,Measurement Method
+Brand Awareness,Increase Brand Recall,Brand Awareness / Recall
+Brand Awareness,Increase Brand Recall,Brand Health Study
+Brand Awareness,Increase Brand Recall,Brand Lift Studies
+Brand Awareness,Improve Brand Perception,Brand Awareness / Recall
+Brand Awareness,Improve Brand Perception,Brand Health Study
+Brand Awareness,Improve Brand Perception,Brand Lift Studies
+Brand Awareness,Expand Reach,Brand Awareness / Recall
+Brand Awareness,Expand Reach,Brand Health Study
+Brand Awareness,Expand Reach,Brand Lift Studies
+Customer Engagement,Improve Stickiness,DAU / MAU (Stickiness)
+Customer Engagement,Improve Stickiness,Engagement Rate
+Customer Engagement,Improve Stickiness,Session Length
+Customer Engagement,Improve Stickiness,WAU / MAU
+Customer Engagement,Boost Content Interaction,DAU / MAU (Stickiness)
+Customer Engagement,Boost Content Interaction,Engagement Rate
+Customer Engagement,Boost Content Interaction,Session Length
+Customer Engagement,Boost Content Interaction,WAU / MAU
+Customer Engagement,Lengthen Session Time,DAU / MAU (Stickiness)
+Customer Engagement,Lengthen Session Time,Engagement Rate
+Customer Engagement,Lengthen Session Time,Session Length
+Customer Engagement,Lengthen Session Time,WAU / MAU
+Customer Retention,Reduce Churn,Churn Prediction Models
+Customer Retention,Reduce Churn,Churn Rate
+Customer Retention,Reduce Churn,Cohort Analysis
+Customer Retention,Reduce Churn,Retention Curves
+Customer Retention,Reduce Churn,Survival Analysis
+Customer Retention,Increase Repeat Usage,Churn Prediction Models
+Customer Retention,Increase Repeat Usage,Churn Rate
+Customer Retention,Increase Repeat Usage,Cohort Analysis
+Customer Retention,Increase Repeat Usage,Retention Curves
+Customer Retention,Increase Repeat Usage,Survival Analysis
+Customer Retention,Boost Feature Adoption,Churn Prediction Models
+Customer Retention,Boost Feature Adoption,Churn Rate
+Customer Retention,Boost Feature Adoption,Cohort Analysis
+Customer Retention,Boost Feature Adoption,Retention Curves
+Customer Retention,Boost Feature Adoption,Survival Analysis
+User Journey Insights,Map Conversion Paths,Customer Journey Mapping
+User Journey Insights,Map Conversion Paths,Path Analysis
+User Journey Insights,Understand Drop-offs,Customer Journey Mapping
+User Journey Insights,Understand Drop-offs,Path Analysis
+User Journey Insights,Optimize Funnels,Customer Journey Mapping
+User Journey Insights,Optimize Funnels,Path Analysis
+Customer Experience,Improve Satisfaction,Customer Effort Score (CES)
+Customer Experience,Improve Satisfaction,Customer Satisfaction (CSAT)
+Customer Experience,Ease User Actions,Customer Effort Score (CES)
+Customer Experience,Ease User Actions,Customer Satisfaction (CSAT)
+Customer Experience,Measure Loyalty,Customer Effort Score (CES)
+Customer Experience,Measure Loyalty,Customer Satisfaction (CSAT)
+Audience Targeting,Refine Segments,Propensity Modeling
+Audience Targeting,Refine Segments,Segmentation Studies
+Audience Targeting,Target High-Value Users,Propensity Modeling
+Audience Targeting,Target High-Value Users,Segmentation Studies
+Audience Targeting,Expand Lookalikes,Propensity Modeling
+Audience Targeting,Expand Lookalikes,Segmentation Studies
+Revenue Optimization,Maximize Customer Value,ARPU / ARPPU
+Revenue Optimization,Maximize Customer Value,Annual Recurring Revenue (ARR)
+Revenue Optimization,Maximize Customer Value,Contribution Margin
+Revenue Optimization,Maximize Customer Value,Customer Lifetime Value (LTV)
+Revenue Optimization,Maximize Customer Value,Gross Margin per User
+Revenue Optimization,Maximize Customer Value,Monthly Recurring Revenue (MRR)
+Revenue Optimization,Maximize Customer Value,Payback Period
+Revenue Optimization,Maximize Customer Value,Revenue per Visitor (RPV)
+Revenue Optimization,Improve Conversion Rates,ARPU / ARPPU
+Revenue Optimization,Improve Conversion Rates,Annual Recurring Revenue (ARR)
+Revenue Optimization,Improve Conversion Rates,Contribution Margin
+Revenue Optimization,Improve Conversion Rates,Customer Lifetime Value (LTV)
+Revenue Optimization,Improve Conversion Rates,Gross Margin per User
+Revenue Optimization,Improve Conversion Rates,Monthly Recurring Revenue (MRR)
+Revenue Optimization,Improve Conversion Rates,Payback Period
+Revenue Optimization,Improve Conversion Rates,Revenue per Visitor (RPV)
+Revenue Optimization,Optimize Pricing,ARPU / ARPPU
+Revenue Optimization,Optimize Pricing,Annual Recurring Revenue (ARR)
+Revenue Optimization,Optimize Pricing,Contribution Margin
+Revenue Optimization,Optimize Pricing,Customer Lifetime Value (LTV)
+Revenue Optimization,Optimize Pricing,Gross Margin per User
+Revenue Optimization,Optimize Pricing,Monthly Recurring Revenue (MRR)
+Revenue Optimization,Optimize Pricing,Payback Period
+Revenue Optimization,Optimize Pricing,Revenue per Visitor (RPV)
+Customer Acquisition,Drive New Users,Customer Acquisition Cost (CAC)
+Customer Acquisition,Drive New Users,Net New Users
+Customer Acquisition,Increase Site Traffic,Customer Acquisition Cost (CAC)
+Customer Acquisition,Increase Site Traffic,Net New Users
+Customer Acquisition,Optimize Acquisition Cost,Customer Acquisition Cost (CAC)
+Customer Acquisition,Optimize Acquisition Cost,Net New Users
+Campaign Efficiency,Lower Cost per Result,Marketing Efficiency Ratio (MER)
+Campaign Efficiency,Lower Cost per Result,Return on Ad Spend (ROAS)
+Campaign Efficiency,Improve ROAS,Marketing Efficiency Ratio (MER)
+Campaign Efficiency,Improve ROAS,Return on Ad Spend (ROAS)
+Campaign Efficiency,Test Channel Mix,Marketing Efficiency Ratio (MER)
+Campaign Efficiency,Test Channel Mix,Return on Ad Spend (ROAS)
+Competitive Benchmarking,Understand Market Share,Impression Share
+Competitive Benchmarking,Understand Market Share,Share of Voice (SOV)
+Competitive Benchmarking,Track SOV,Impression Share
+Competitive Benchmarking,Track SOV,Share of Voice (SOV)
+Competitive Benchmarking,Compare Spend Efficiency,Impression Share
+Competitive Benchmarking,Compare Spend Efficiency,Share of Voice (SOV)
+Financial Planning,Calculate Profitability,Break-even Analysis
+Financial Planning,Forecast Revenue,Break-even Analysis
+Financial Planning,Plan Budgets,Break-even Analysis
+Performance Monitoring,Detect Anomalies,Anomaly Detection
+Performance Monitoring,Track Key KPIs,Anomaly Detection
+Performance Monitoring,Prevent Drops,Anomaly Detection

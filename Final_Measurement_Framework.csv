@@ -1,0 +1,150 @@
+,Business Objective,Campaign Objective,Measurement Method,Category,Description,"Implementation Cost (1=Low, 5=High)","Impact Duration (1=Short, 5=Long)",Business/Campaign Objective
+0,Brand Awareness,Increase Brand Recall,Brand Awareness / Recall,Brand & Customer Insights,Measures how many people recognize or recall the brand.,2,3,Brand Awareness
+1,Brand Awareness,Increase Brand Recall,Brand Health Study,Brand & Customer Insights,"Surveys that track brand awareness, perception, and loyalty over time.",3,5,Brand Awareness
+2,Brand Awareness,Increase Brand Recall,Brand Lift Studies,Marketing & Media Measurement,Evaluates how advertising improves brand perception or awareness.,2,3,Brand Awareness
+3,Brand Awareness,Improve Brand Perception,Brand Awareness / Recall,Brand & Customer Insights,Measures how many people recognize or recall the brand.,2,3,Brand Awareness
+4,Brand Awareness,Improve Brand Perception,Brand Health Study,Brand & Customer Insights,"Surveys that track brand awareness, perception, and loyalty over time.",3,5,Brand Awareness
+5,Brand Awareness,Improve Brand Perception,Brand Lift Studies,Marketing & Media Measurement,Evaluates how advertising improves brand perception or awareness.,2,3,Brand Awareness
+6,Brand Awareness,Expand Reach,Brand Awareness / Recall,Brand & Customer Insights,Measures how many people recognize or recall the brand.,2,3,Brand Awareness
+7,Brand Awareness,Expand Reach,Brand Health Study,Brand & Customer Insights,"Surveys that track brand awareness, perception, and loyalty over time.",3,5,Brand Awareness
+8,Brand Awareness,Expand Reach,Brand Lift Studies,Marketing & Media Measurement,Evaluates how advertising improves brand perception or awareness.,2,3,Brand Awareness
+9,Customer Engagement,Improve Stickiness,DAU / MAU (Stickiness),Product Metrics & User Behavior,Measures how often users return by comparing daily and monthly users.,1,2,Customer Engagement
+10,Customer Engagement,Improve Stickiness,Engagement Rate,Product Metrics & User Behavior,Measures frequency and intensity of user interaction.,1,2,Customer Engagement
+11,Customer Engagement,Improve Stickiness,Session Length,Product Metrics & User Behavior,Average time users spend in the product.,1,2,Customer Engagement
+12,Customer Engagement,Improve Stickiness,WAU / MAU,Product Metrics & User Behavior,Weekly active users divided by monthly active users to assess engagement.,1,2,Customer Engagement
+13,Customer Engagement,Boost Content Interaction,DAU / MAU (Stickiness),Product Metrics & User Behavior,Measures how often users return by comparing daily and monthly users.,1,2,Customer Engagement
+14,Customer Engagement,Boost Content Interaction,Engagement Rate,Product Metrics & User Behavior,Measures frequency and intensity of user interaction.,1,2,Customer Engagement
+15,Customer Engagement,Boost Content Interaction,Session Length,Product Metrics & User Behavior,Average time users spend in the product.,1,2,Customer Engagement
+16,Customer Engagement,Boost Content Interaction,WAU / MAU,Product Metrics & User Behavior,Weekly active users divided by monthly active users to assess engagement.,1,2,Customer Engagement
+17,Customer Engagement,Lengthen Session Time,DAU / MAU (Stickiness),Product Metrics & User Behavior,Measures how often users return by comparing daily and monthly users.,1,2,Customer Engagement
+18,Customer Engagement,Lengthen Session Time,Engagement Rate,Product Metrics & User Behavior,Measures frequency and intensity of user interaction.,1,2,Customer Engagement
+19,Customer Engagement,Lengthen Session Time,Session Length,Product Metrics & User Behavior,Average time users spend in the product.,1,2,Customer Engagement
+20,Customer Engagement,Lengthen Session Time,WAU / MAU,Product Metrics & User Behavior,Weekly active users divided by monthly active users to assess engagement.,1,2,Customer Engagement
+21,Customer Retention,Reduce Churn,Churn Prediction Models,Advanced Modeling & Analytics,Predicts which users are likely to churn.,3,4,Customer Retention
+22,Customer Retention,Reduce Churn,Churn Rate,Product Metrics & User Behavior,Percentage of users who stop using the product.,1,3,Customer Retention
+23,Customer Retention,Reduce Churn,Cohort Analysis,Product Metrics & User Behavior,Analyzes behavior of user groups over time.,2,3,Customer Retention
+24,Customer Retention,Reduce Churn,Retention Curves,Product Metrics & User Behavior,"Tracks user retention over time (e.g., D1, D7, D30).",1,3,Customer Retention
+25,Customer Retention,Reduce Churn,Survival Analysis,Advanced Modeling & Analytics,"Analyzes time-to-event data (e.g., churn, conversion).",4,4,Customer Retention
+26,Customer Retention,Increase Repeat Usage,Churn Prediction Models,Advanced Modeling & Analytics,Predicts which users are likely to churn.,3,4,Customer Retention
+27,Customer Retention,Increase Repeat Usage,Churn Rate,Product Metrics & User Behavior,Percentage of users who stop using the product.,1,3,Customer Retention
+28,Customer Retention,Increase Repeat Usage,Cohort Analysis,Product Metrics & User Behavior,Analyzes behavior of user groups over time.,2,3,Customer Retention
+29,Customer Retention,Increase Repeat Usage,Retention Curves,Product Metrics & User Behavior,"Tracks user retention over time (e.g., D1, D7, D30).",1,3,Customer Retention
+30,Customer Retention,Increase Repeat Usage,Survival Analysis,Advanced Modeling & Analytics,"Analyzes time-to-event data (e.g., churn, conversion).",4,4,Customer Retention
+31,Customer Retention,Boost Feature Adoption,Churn Prediction Models,Advanced Modeling & Analytics,Predicts which users are likely to churn.,3,4,Customer Retention
+32,Customer Retention,Boost Feature Adoption,Churn Rate,Product Metrics & User Behavior,Percentage of users who stop using the product.,1,3,Customer Retention
+33,Customer Retention,Boost Feature Adoption,Cohort Analysis,Product Metrics & User Behavior,Analyzes behavior of user groups over time.,2,3,Customer Retention
+34,Customer Retention,Boost Feature Adoption,Retention Curves,Product Metrics & User Behavior,"Tracks user retention over time (e.g., D1, D7, D30).",1,3,Customer Retention
+35,Customer Retention,Boost Feature Adoption,Survival Analysis,Advanced Modeling & Analytics,"Analyzes time-to-event data (e.g., churn, conversion).",4,4,Customer Retention
+36,User Journey Insights,Map Conversion Paths,Customer Journey Mapping,Brand & Customer Insights,Visualizes key steps users take from awareness to conversion.,2,4,User Journey Insights
+37,User Journey Insights,Map Conversion Paths,Path Analysis,Product Metrics & User Behavior,Visualizes user flow through app or site.,2,3,User Journey Insights
+38,User Journey Insights,Understand Drop-offs,Customer Journey Mapping,Brand & Customer Insights,Visualizes key steps users take from awareness to conversion.,2,4,User Journey Insights
+39,User Journey Insights,Understand Drop-offs,Path Analysis,Product Metrics & User Behavior,Visualizes user flow through app or site.,2,3,User Journey Insights
+40,User Journey Insights,Optimize Funnels,Customer Journey Mapping,Brand & Customer Insights,Visualizes key steps users take from awareness to conversion.,2,4,User Journey Insights
+41,User Journey Insights,Optimize Funnels,Path Analysis,Product Metrics & User Behavior,Visualizes user flow through app or site.,2,3,User Journey Insights
+42,Customer Experience,Improve Satisfaction,Customer Effort Score (CES),Brand & Customer Insights,Measures ease of completing an action or task.,1,2,Customer Experience
+43,Customer Experience,Improve Satisfaction,Customer Satisfaction (CSAT),Brand & Customer Insights,Measures satisfaction via surveys post-interaction.,1,2,Customer Experience
+44,Customer Experience,Ease User Actions,Customer Effort Score (CES),Brand & Customer Insights,Measures ease of completing an action or task.,1,2,Customer Experience
+45,Customer Experience,Ease User Actions,Customer Satisfaction (CSAT),Brand & Customer Insights,Measures satisfaction via surveys post-interaction.,1,2,Customer Experience
+46,Customer Experience,Measure Loyalty,Customer Effort Score (CES),Brand & Customer Insights,Measures ease of completing an action or task.,1,2,Customer Experience
+47,Customer Experience,Measure Loyalty,Customer Satisfaction (CSAT),Brand & Customer Insights,Measures satisfaction via surveys post-interaction.,1,2,Customer Experience
+48,Audience Targeting,Refine Segments,Propensity Modeling,Advanced Modeling & Analytics,Predicts likelihood of users taking specific actions.,3,4,Audience Targeting
+49,Audience Targeting,Refine Segments,Segmentation Studies,Brand & Customer Insights,Divides audience into distinct groups based on traits or behavior.,3,4,Audience Targeting
+50,Audience Targeting,Target High-Value Users,Propensity Modeling,Advanced Modeling & Analytics,Predicts likelihood of users taking specific actions.,3,4,Audience Targeting
+51,Audience Targeting,Target High-Value Users,Segmentation Studies,Brand & Customer Insights,Divides audience into distinct groups based on traits or behavior.,3,4,Audience Targeting
+52,Audience Targeting,Expand Lookalikes,Propensity Modeling,Advanced Modeling & Analytics,Predicts likelihood of users taking specific actions.,3,4,Audience Targeting
+53,Audience Targeting,Expand Lookalikes,Segmentation Studies,Brand & Customer Insights,Divides audience into distinct groups based on traits or behavior.,3,4,Audience Targeting
+54,Revenue Optimization,Maximize Customer Value,ARPU / ARPPU,Business & Financial Metrics,Average revenue per (paying) user.,2,3,Revenue Optimization
+55,Revenue Optimization,Maximize Customer Value,Annual Recurring Revenue (ARR),Business & Financial Metrics,Projected annual revenue from recurring sources.,2,4,Revenue Optimization
+56,Revenue Optimization,Maximize Customer Value,Contribution Margin,Business & Financial Metrics,Revenue minus variable costs per unit.,2,4,Revenue Optimization
+57,Revenue Optimization,Maximize Customer Value,Customer Lifetime Value (LTV),Business & Financial Metrics,Total revenue expected from a customer over time.,2,4,Revenue Optimization
+58,Revenue Optimization,Maximize Customer Value,Gross Margin per User,Business & Financial Metrics,Average margin earned per user.,2,3,Revenue Optimization
+59,Revenue Optimization,Maximize Customer Value,Monthly Recurring Revenue (MRR),Business & Financial Metrics,Consistent monthly revenue from subscriptions or contracts.,2,4,Revenue Optimization
+60,Revenue Optimization,Maximize Customer Value,Payback Period,Business & Financial Metrics,Time it takes to recoup customer acquisition costs.,2,4,Revenue Optimization
+61,Revenue Optimization,Maximize Customer Value,Revenue per Visitor (RPV),Business & Financial Metrics,Average revenue generated for each website visitor.,1,2,Revenue Optimization
+62,Revenue Optimization,Improve Conversion Rates,ARPU / ARPPU,Business & Financial Metrics,Average revenue per (paying) user.,2,3,Revenue Optimization
+63,Revenue Optimization,Improve Conversion Rates,Annual Recurring Revenue (ARR),Business & Financial Metrics,Projected annual revenue from recurring sources.,2,4,Revenue Optimization
+64,Revenue Optimization,Improve Conversion Rates,Contribution Margin,Business & Financial Metrics,Revenue minus variable costs per unit.,2,4,Revenue Optimization
+65,Revenue Optimization,Improve Conversion Rates,Customer Lifetime Value (LTV),Business & Financial Metrics,Total revenue expected from a customer over time.,2,4,Revenue Optimization
+66,Revenue Optimization,Improve Conversion Rates,Gross Margin per User,Business & Financial Metrics,Average margin earned per user.,2,3,Revenue Optimization
+67,Revenue Optimization,Improve Conversion Rates,Monthly Recurring Revenue (MRR),Business & Financial Metrics,Consistent monthly revenue from subscriptions or contracts.,2,4,Revenue Optimization
+68,Revenue Optimization,Improve Conversion Rates,Payback Period,Business & Financial Metrics,Time it takes to recoup customer acquisition costs.,2,4,Revenue Optimization
+69,Revenue Optimization,Improve Conversion Rates,Revenue per Visitor (RPV),Business & Financial Metrics,Average revenue generated for each website visitor.,1,2,Revenue Optimization
+70,Revenue Optimization,Optimize Pricing,ARPU / ARPPU,Business & Financial Metrics,Average revenue per (paying) user.,2,3,Revenue Optimization
+71,Revenue Optimization,Optimize Pricing,Annual Recurring Revenue (ARR),Business & Financial Metrics,Projected annual revenue from recurring sources.,2,4,Revenue Optimization
+72,Revenue Optimization,Optimize Pricing,Contribution Margin,Business & Financial Metrics,Revenue minus variable costs per unit.,2,4,Revenue Optimization
+73,Revenue Optimization,Optimize Pricing,Customer Lifetime Value (LTV),Business & Financial Metrics,Total revenue expected from a customer over time.,2,4,Revenue Optimization
+74,Revenue Optimization,Optimize Pricing,Gross Margin per User,Business & Financial Metrics,Average margin earned per user.,2,3,Revenue Optimization
+75,Revenue Optimization,Optimize Pricing,Monthly Recurring Revenue (MRR),Business & Financial Metrics,Consistent monthly revenue from subscriptions or contracts.,2,4,Revenue Optimization
+76,Revenue Optimization,Optimize Pricing,Payback Period,Business & Financial Metrics,Time it takes to recoup customer acquisition costs.,2,4,Revenue Optimization
+77,Revenue Optimization,Optimize Pricing,Revenue per Visitor (RPV),Business & Financial Metrics,Average revenue generated for each website visitor.,1,2,Revenue Optimization
+78,Customer Acquisition,Drive New Users,Customer Acquisition Cost (CAC),Business & Financial Metrics,Cost of acquiring a new customer.,2,2,Customer Acquisition
+79,Customer Acquisition,Drive New Users,Net New Users,Product Metrics & User Behavior,Number of new users acquired minus those who churned.,1,2,Customer Acquisition
+80,Customer Acquisition,Increase Site Traffic,Customer Acquisition Cost (CAC),Business & Financial Metrics,Cost of acquiring a new customer.,2,2,Customer Acquisition
+81,Customer Acquisition,Increase Site Traffic,Net New Users,Product Metrics & User Behavior,Number of new users acquired minus those who churned.,1,2,Customer Acquisition
+82,Customer Acquisition,Optimize Acquisition Cost,Customer Acquisition Cost (CAC),Business & Financial Metrics,Cost of acquiring a new customer.,2,2,Customer Acquisition
+83,Customer Acquisition,Optimize Acquisition Cost,Net New Users,Product Metrics & User Behavior,Number of new users acquired minus those who churned.,1,2,Customer Acquisition
+84,Campaign Efficiency,Lower Cost per Result,Marketing Efficiency Ratio (MER),Business & Financial Metrics,Revenue divided by total marketing spend.,1,3,Campaign Efficiency
+85,Campaign Efficiency,Lower Cost per Result,Return on Ad Spend (ROAS),Business & Financial Metrics,Revenue return per dollar spent on ads.,1,2,Campaign Efficiency
+86,Campaign Efficiency,Improve ROAS,Marketing Efficiency Ratio (MER),Business & Financial Metrics,Revenue divided by total marketing spend.,1,3,Campaign Efficiency
+87,Campaign Efficiency,Improve ROAS,Return on Ad Spend (ROAS),Business & Financial Metrics,Revenue return per dollar spent on ads.,1,2,Campaign Efficiency
+88,Campaign Efficiency,Test Channel Mix,Marketing Efficiency Ratio (MER),Business & Financial Metrics,Revenue divided by total marketing spend.,1,3,Campaign Efficiency
+89,Campaign Efficiency,Test Channel Mix,Return on Ad Spend (ROAS),Business & Financial Metrics,Revenue return per dollar spent on ads.,1,2,Campaign Efficiency
+90,Competitive Benchmarking,Understand Market Share,Impression Share,Marketing & Media Measurement,Percentage of total impressions your ad received out of total available.,1,2,Competitive Benchmarking
+91,Competitive Benchmarking,Understand Market Share,Share of Voice (SOV),Marketing & Media Measurement,Brand's share of total advertising in its category.,2,3,Competitive Benchmarking
+92,Competitive Benchmarking,Track SOV,Impression Share,Marketing & Media Measurement,Percentage of total impressions your ad received out of total available.,1,2,Competitive Benchmarking
+93,Competitive Benchmarking,Track SOV,Share of Voice (SOV),Marketing & Media Measurement,Brand's share of total advertising in its category.,2,3,Competitive Benchmarking
+94,Competitive Benchmarking,Compare Spend Efficiency,Impression Share,Marketing & Media Measurement,Percentage of total impressions your ad received out of total available.,1,2,Competitive Benchmarking
+95,Competitive Benchmarking,Compare Spend Efficiency,Share of Voice (SOV),Marketing & Media Measurement,Brand's share of total advertising in its category.,2,3,Competitive Benchmarking
+96,Financial Planning,Calculate Profitability,Break-even Analysis,Business & Financial Metrics,Identifies when revenues will match or exceed costs.,2,3,Financial Planning
+97,Financial Planning,Forecast Revenue,Break-even Analysis,Business & Financial Metrics,Identifies when revenues will match or exceed costs.,2,3,Financial Planning
+98,Financial Planning,Plan Budgets,Break-even Analysis,Business & Financial Metrics,Identifies when revenues will match or exceed costs.,2,3,Financial Planning
+99,Performance Monitoring,Detect Anomalies,Anomaly Detection,Advanced Modeling & Analytics,Identifies unusual spikes or drops in key metrics.,3,2,Performance Monitoring
+100,Performance Monitoring,Track Key KPIs,Anomaly Detection,Advanced Modeling & Analytics,Identifies unusual spikes or drops in key metrics.,3,2,Performance Monitoring
+101,Performance Monitoring,Prevent Drops,Anomaly Detection,Advanced Modeling & Analytics,Identifies unusual spikes or drops in key metrics.,3,2,Performance Monitoring
+102,Product Optimization,Test Feature Value,A/B Testing,Experimentation & Testing,Tests two variants to determine which performs better.,1,2,Optimization & Testing
+103,Product Optimization,Test Feature Value,A/B/n Testing,Experimentation & Testing,Tests multiple variants simultaneously.,2,2,Optimization & Testing
+104,Product Optimization,Test Feature Value,Adaptive Experimentation,Experimentation & Testing,Adjusts experiment dynamically based on performance.,4,3,Optimization & Testing
+105,Product Optimization,Test Feature Value,Bayesian Experimentation,Experimentation & Testing,Uses Bayesian inference to continuously evaluate test results.,3,3,Optimization & Testing
+106,Customer Engagement,Boost Content Interaction,Bounce Rate,Product Metrics & User Behavior,Percentage of users who leave after viewing one page.,1,1,Website Optimization
+107,Brand Awareness,Improve Brand Perception,Brand Equity Scores,Brand & Customer Insights,Quantifies brand strength using multiple perception dimensions.,3,4,Brand Equity
+108,Campaign Efficiency,Test Channel Mix,Channel Contribution Analysis,Marketing & Media Measurement,Analyzes the relative value of each channel in driving outcomes.,2,3,Channel Optimization
+109,Customer Acquisition,Increase Site Traffic,Click-Through Rate (CTR),Product Metrics & User Behavior,Percentage of users who clicked on a link or CTA.,1,1,Ad Performance
+110,Revenue Optimization,Optimize Pricing,Conjoint Analysis,Brand & Customer Insights,Quantifies value users place on specific features or attributes.,4,4,Product & Feature Prioritization
+111,Campaign Efficiency,Improve ROAS,Conversion Lift Studies,Marketing & Media Measurement,Tests whether advertising caused an increase in conversions vs. control.,2,3,Campaign Effectiveness
+112,Performance Monitoring,Track Key KPIs,Dimensionality Reduction,Advanced Modeling & Analytics,Reduces data complexity for visualization or modeling.,3,3,Data Simplification
+113,Campaign Efficiency,Lower Cost per Result,Effective Cost Per Mille (eCPM),Marketing & Media Measurement,"Estimated earnings per 1,000 impressions, normalized across formats.",1,2,Cost Efficiency
+114,Product Optimization,Reduce Errors,Error Rate,Product Metrics & User Behavior,Frequency of user-facing or internal errors.,1,2,Product Quality
+115,Customer Retention,Boost Feature Adoption,Feature Adoption Rate,Product Metrics & User Behavior,Percentage of users who use a particular feature.,1,3,Product Usage
+116,Customer Experience,Measure Loyalty,First-party Sentiment Analysis,Brand & Customer Insights,Uses owned text data to assess customer sentiment.,2,2,Customer Sentiment
+117,Revenue Optimization,Improve Conversion Rates,Funnel Conversion Rates,Product Metrics & User Behavior,Measures drop-off and completion rates through a funnel.,2,3,Conversion Optimization
+118,Campaign Efficiency,Test Channel Mix,Geo-Experimentation / Market-Level Testing,Marketing & Media Measurement,Tests media impact by comparing different geographic areas.,3,4,Incrementality Measurement
+119,Financial Planning,Forecast Revenue,Hierarchical Bayesian Models,Advanced Modeling & Analytics,Advanced probabilistic models that handle nested data structures.,5,5,Advanced Modeling
+120,Campaign Efficiency,Improve ROAS,Holdout Testing,Marketing & Media Measurement,Withholds a portion of users from marketing to measure true impact.,2,4,Incrementality Measurement
+121,Campaign Efficiency,Improve ROAS,Incrementality Testing,Marketing & Media Measurement,Measures the true lift from marketing by comparing exposed vs. control groups.,3,4,Incrementality Measurement
+122,Product Optimization,Test Feature Value,Interruption Testing,Experimentation & Testing,Randomly removes features to measure their importance or impact.,3,3,Feature Impact Analysis
+123,Customer Acquisition,Optimize Acquisition Cost,Last Touch Attribution,Marketing & Media Measurement,Attributes all credit to the final touchpoint before conversion.,1,1,Conversion Attribution
+124,Performance Monitoring,Track Key KPIs,Latent Variable Models,Advanced Modeling & Analytics,Estimates unobserved factors influencing observed data.,4,4,Advanced Modeling
+125,Audience Targeting,Expand Lookalikes,Lookalike Modeling,Advanced Modeling & Analytics,Finds new users similar to existing valuable users.,3,4,Audience Expansion
+126,Campaign Efficiency,Test Channel Mix,Marketing Mix Modeling (MMM),Marketing & Media Measurement,Statistical analysis to estimate the impact of various marketing tactics on sales.,4,5,Channel Optimization
+127,Revenue Optimization,Optimize Pricing,MaxDiff Analysis,Brand & Customer Insights,Survey technique for identifying most and least preferred items.,3,3,Product & Feature Prioritization
+128,Campaign Efficiency,Improve ROAS,Media Lift Studies,Marketing & Media Measurement,Platform-led studies measuring ad impact on metrics like awareness or conversions.,2,3,Campaign Effectiveness
+129,Customer Acquisition,Optimize Acquisition Cost,Multi-Touch Attribution (MTA),Marketing & Media Measurement,Assigns credit to multiple marketing touchpoints along the customer journey.,3,3,Conversion Attribution
+130,Product Optimization,Test Feature Value,Multivariate Testing,Experimentation & Testing,Tests combinations of variables to find best-performing mix.,3,2,Optimization & Testing
+131,Customer Experience,Measure Loyalty,Net Promoter Score (NPS),Brand & Customer Insights,Measures likelihood to recommend the brand.,1,3,Customer Loyalty
+132,Campaign Efficiency,Improve ROAS,Pre/Post Testing,Experimentation & Testing,Compares metrics before and after a change to assess impact.,1,3,Campaign Effectiveness
+133,Campaign Efficiency,Improve ROAS,Quasi-Experimental Design,Experimentation & Testing,Estimates causal impact without randomization using statistical controls.,3,4,Campaign Effectiveness
+134,Customer Engagement,Boost Content Interaction,Recommendation Systems,Advanced Modeling & Analytics,Suggests content or products based on user data and behavior.,4,4,Personalization
+135,Customer Engagement,Boost Content Interaction,Scroll Depth,Product Metrics & User Behavior,How far users scroll down a page — used to measure content engagement.,1,1,Content Engagement
+136,Product Optimization,Test Feature Value,Sequential Testing,Experimentation & Testing,Evaluates results as data accumulates to potentially stop early.,2,2,Optimization & Testing
+137,Product Optimization,Test Feature Value,Split Testing,Experimentation & Testing,Splits traffic between different landing pages or experiences.,2,2,Optimization & Testing
+138,Campaign Efficiency,Improve ROAS,Synthetic Control Method,Experimentation & Testing,Creates a synthetic version of the treatment group to estimate impact.,4,4,Campaign Effectiveness
+139,Product Optimization,Test Feature Value,Test & Learn Framework,Experimentation & Testing,Structured process for continuous experimentation and learning.,2,4,Continuous Optimization
+140,Customer Experience,Improve Satisfaction,Third-party Sentiment Analysis,Brand & Customer Insights,Analyzes sentiment using external sources like social or review data.,2,3,Brand Perception
+141,Financial Planning,Forecast Revenue,Time Series Causal Impact Modeling,Marketing & Media Measurement,Estimates causal effect over time using time series data and interventions.,3,4,Campaign Effectiveness
+142,Financial Planning,Forecast Revenue,Time Series Forecasting,Advanced Modeling & Analytics,Forecasts future outcomes using historical trends.,3,3,Performance Forecasting
+143,Customer Engagement,Improve Stickiness,Time to First Action,Product Metrics & User Behavior,Time from sign-up to meaningful activity.,1,2,Onboarding Optimization
+144,Customer Experience,Improve Satisfaction,Topic Modeling,Advanced Modeling & Analytics,Automatically uncovers topics from text data.,3,3,Customer Insights
+145,Audience Targeting,Target High-Value Users,Uplift Modeling,Advanced Modeling & Analytics,Estimates which users will respond positively to treatment.,4,4,Targeting Optimization
+146,Customer Experience,Improve Satisfaction,Usage & Attitude Studies (U&A),Brand & Customer Insights,Deep dives into how and why people use products.,3,4,Customer Insights
+147,Campaign Efficiency,Lower Cost per Result,Viewability Rate,Marketing & Media Measurement,Percentage of ads that were actually seen by users.,1,1,Media Quality
+148,Customer Experience,Improve Satisfaction,Voice of Customer (VoC),Brand & Customer Insights,Aggregates qualitative feedback from multiple sources.,2,3,Customer Insights
