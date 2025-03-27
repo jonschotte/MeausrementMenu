@@ -198,20 +198,6 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
     st.markdown("---")
     st.subheader("🧪 Recommended Measurements")
 
-    # Create matrix visualization with only relevant methods
-    st.subheader("📊 Implementation Cost vs Impact Duration Matrix")
-    matrix_df = df[df["Measurement Method"].isin(relevant_methods)].copy()
-    if not matrix_df.empty:
-        fig = px.scatter(matrix_df, 
-                        x="Implementation Cost (1=Low, 5=High)", 
-                        y="Impact Duration (1=Short, 5=Long)",
-                        text="Measurement Method",
-                        title="Recommended Measurements Matrix")
-        fig.update_traces(textposition='top center')
-        st.plotly_chart(fig, use_container_width=True)
-    else:
-        st.warning("No measurements found for the matched objectives.")
-
     # Create tile layout (4 columns per row)
     cols = st.columns(4)
     for i, method in enumerate(relevant_methods):  # Only show relevant methods
@@ -249,6 +235,30 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
                 
                 st.markdown("</div>", unsafe_allow_html=True)
 
+    # Show matrix visualization after the checkboxes
+    st.markdown("---")
+    st.subheader("📊 Implementation Cost vs Impact Duration Matrix")
+    matrix_df = df[df["Measurement Method"].isin(relevant_methods)].copy()
+    if not matrix_df.empty:
+        fig = px.scatter(matrix_df, 
+                        x="Implementation Cost (1=Low, 5=High)", 
+                        y="Impact Duration (1=Short, 5=Long)",
+                        text="Measurement Method",
+                        title="Recommended Measurements Matrix")
+        fig.update_traces(textposition='top center', 
+                         marker=dict(size=15, line=dict(width=3, color='black')),
+                         textfont=dict(size=12, color='black'))
+        fig.update_layout(
+            plot_bgcolor='white',
+            paper_bgcolor='white',
+            xaxis=dict(gridcolor='lightgray', linewidth=2),
+            yaxis=dict(gridcolor='lightgray', linewidth=2),
+            showlegend=False
+        )
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.warning("No measurements found for the matched objectives.")
+
     # Show selected metrics and generate document button
     if st.session_state.selected_metrics:
         st.markdown("---")
@@ -256,8 +266,9 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
         for metric in st.session_state.selected_metrics:
             st.write(f"- {metric}")
         
-        if len(st.session_state.selected_metrics) == 5:
-            if st.button("Generate Measurement Plan Document"):
+        st.info("🎯 Click the button below to generate your detailed measurement plan document.")
+        if st.button("Generate Measurement Plan Document"):
+            with st.spinner("Generating your measurement plan document..."):
                 # Create a new Word document
                 doc = docx.Document()
                 
@@ -316,15 +327,14 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
                 
                 # Save the document
                 doc.save("Measurement_Plan.docx")
-                st.success("Measurement plan document generated successfully!")
+                st.success("✅ Measurement plan document generated successfully!")
                 
-                # Provide download link
+                # Provide download link with clear instructions
+                st.info("📥 Click the button below to download your measurement plan document:")
                 with open("Measurement_Plan.docx", "rb") as file:
                     st.download_button(
-                        label="Download Measurement Plan",
+                        label="📄 Download Measurement Plan",
                         data=file,
                         file_name="Measurement_Plan.docx",
                         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     )
-        else:
-            st.warning(f"Please select exactly 5 metrics. Currently selected: {len(st.session_state.selected_metrics)}")
