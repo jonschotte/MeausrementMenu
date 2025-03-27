@@ -53,6 +53,10 @@ if 'matched_camp_obj' not in st.session_state:
     st.session_state.matched_camp_obj = None
 if 'document_path' not in st.session_state:
     st.session_state.document_path = None
+if 'relevant_methods' not in st.session_state:
+    st.session_state.relevant_methods = None
+if 'objectives_matched' not in st.session_state:
+    st.session_state.objectives_matched = False
 
 def match_objectives(biz_obj, camp_obj):
     # First, get unique business objectives
@@ -182,30 +186,26 @@ if input_method == "Manual Input":
     biz_obj = st.text_input("Describe your **business objective**")
     camp_obj = st.text_input("Describe your **campaign objective**")
 
-    # Run matching if inputs are provided
-    if biz_obj and camp_obj:
+    # Run matching if inputs are provided and not already matched
+    if biz_obj and camp_obj and not st.session_state.objectives_matched:
         with st.spinner("Matching objectives..."):
             matched_biz_obj, matched_camp_obj = match_objectives(biz_obj, camp_obj)
             
             if matched_biz_obj and matched_camp_obj:
-                st.markdown("### Matched Objectives")
-                st.markdown(f"**Business Objective:** {matched_biz_obj}")
-                st.markdown(f"**Campaign Objective:** {matched_camp_obj}")
-                
-                # Get relevant measurements based on matched objectives
-                relevant_methods = df[
+                # Store matched objectives and relevant methods in session state
+                st.session_state.matched_biz_obj = matched_biz_obj
+                st.session_state.matched_camp_obj = matched_camp_obj
+                st.session_state.relevant_methods = df[
                     (df['Business Objective'] == matched_biz_obj) & 
                     (df['Campaign Objective'] == matched_camp_obj)
                 ]['Measurement Method'].unique().tolist()
-                
-                df['similarity'] = 0
-                df.loc[df['Measurement Method'].isin(relevant_methods), 'similarity'] = 1
+                st.session_state.objectives_matched = True
 
 else:
     # RFP Document Upload
     uploaded_file = st.file_uploader("Upload RFP Document", type=['txt', 'docx', 'pdf'])
     
-    if uploaded_file:
+    if uploaded_file and not st.session_state.objectives_matched:
         # Read the document content
         if uploaded_file.type == "text/plain":
             content = uploaded_file.getvalue().decode("utf-8")
@@ -243,42 +243,28 @@ else:
                 matched_biz_obj, matched_camp_obj = match_objectives(biz_obj, camp_obj)
                 
                 if matched_biz_obj and matched_camp_obj:
-                    st.markdown("### Matched Objectives")
-                    st.markdown(f"**Business Objective:** {matched_biz_obj}")
-                    st.markdown(f"**Campaign Objective:** {matched_camp_obj}")
-                    
-                    # Get relevant measurements based on matched objectives
-                    relevant_methods = df[
+                    # Store matched objectives and relevant methods in session state
+                    st.session_state.matched_biz_obj = matched_biz_obj
+                    st.session_state.matched_camp_obj = matched_camp_obj
+                    st.session_state.relevant_methods = df[
                         (df['Business Objective'] == matched_biz_obj) & 
                         (df['Campaign Objective'] == matched_camp_obj)
                     ]['Measurement Method'].unique().tolist()
-                    
-                    df['similarity'] = 0
-                    df.loc[df['Measurement Method'].isin(relevant_methods), 'similarity'] = 1
+                    st.session_state.objectives_matched = True
 
         except Exception as e:
             st.error(f"Error processing document: {str(e)}")
 
-# Display results if we have processed inputs
-if 'matched_biz_obj' in locals() and matched_biz_obj:
-    # Store matched objectives in session state
-    st.session_state.matched_biz_obj = matched_biz_obj
-    st.session_state.matched_camp_obj = matched_camp_obj
-    
+# Display results if we have matched objectives
+if st.session_state.objectives_matched:
     # Display explanation of matches
     st.markdown("---")
     st.subheader("🔍 Why These Measurements Were Recommended")
     st.markdown(f"These measurements were selected because they are specifically designed for the matched objectives:")
-    st.markdown(f"- **Business Objective:** {matched_biz_obj}")
-    st.markdown(f"- **Campaign Objective:** {matched_camp_obj}")
-    
-    # Get relevant measurement methods
-    relevant_methods = df[
-        (df['Business Objective'] == matched_biz_obj) & 
-        (df['Campaign Objective'] == matched_camp_obj)
-    ]['Measurement Method'].unique().tolist()
+    st.markdown(f"- **Business Objective:** {st.session_state.matched_biz_obj}")
+    st.markdown(f"- **Campaign Objective:** {st.session_state.matched_camp_obj}")
 
-    if not relevant_methods:
+    if not st.session_state.relevant_methods:
         st.warning("⚠️ No recommended measurements found for these objectives. Please check the other available metrics below.")
     else:
         st.markdown("---")
@@ -286,7 +272,7 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
 
         # Create tile layout (4 columns per row)
         cols = st.columns(4)
-        for i, method in enumerate(relevant_methods):
+        for i, method in enumerate(st.session_state.relevant_methods):
             col = cols[i % 4]
             
             with col:
@@ -308,7 +294,7 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
         # Show matrix visualization for recommended metrics
         st.markdown("---")
         st.subheader("📊 Implementation Cost vs Impact Duration Matrix")
-        matrix_df = df[df["Measurement Method"].isin(relevant_methods)].copy()
+        matrix_df = df[df["Measurement Method"].isin(st.session_state.relevant_methods)].copy()
         if not matrix_df.empty:
             fig = px.scatter(matrix_df, 
                             x="Implementation Cost (1=Low, 5=High)", 
@@ -330,7 +316,7 @@ if 'matched_biz_obj' in locals() and matched_biz_obj:
     # Add section for other metrics
     st.markdown("---")
     st.subheader("📋 Other Available Metrics")
-    other_methods = df[~df["Measurement Method"].isin(relevant_methods)]["Measurement Method"].unique()
+    other_methods = df[~df["Measurement Method"].isin(st.session_state.relevant_methods)]["Measurement Method"].unique()
     
     # Create tile layout for other metrics (4 columns per row)
     cols = st.columns(4)
