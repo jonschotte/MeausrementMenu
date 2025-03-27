@@ -1,4 +1,7 @@
-transformers
+streamlit
 pandas
-scikit-learn
-sentence-transformers
+openai==0.28.0
+python-docx
+PyPDF2
+plotly
+python-dotenv
