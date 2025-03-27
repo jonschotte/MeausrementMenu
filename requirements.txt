@@ -1,4 +1,4 @@
 transformers
 pandas
 scikit-learn
-sentence_transformers
+sentence-transformers
