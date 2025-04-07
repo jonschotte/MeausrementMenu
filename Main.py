@@ -20,7 +20,7 @@ df = pd.read_csv("Final_Measurement_Framework.csv")
 
 # Streamlit UI setup
 st.set_page_config(page_title="Measurement Finder", layout="wide")
-st.title("📊 Measurement Selector Based on Your Objectives")
+st.title("Measurement Menu")
 
 # OpenAI API Key setup
 api_key = os.getenv("OPENAI_API_KEY")
@@ -57,6 +57,8 @@ if 'relevant_methods' not in st.session_state:
     st.session_state.relevant_methods = None
 if 'objectives_matched' not in st.session_state:
     st.session_state.objectives_matched = False
+if 'business_context' not in st.session_state:
+    st.session_state.business_context = None
 
 def match_objectives(biz_obj, camp_obj):
     # First, get unique business objectives
@@ -122,6 +124,10 @@ def generate_document():
         title = doc.add_heading('Measurement Plan', 0)
         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
         
+        # Add business context section
+        doc.add_heading('Business Context', level=1)
+        doc.add_paragraph(st.session_state.business_context)
+        
         # Add objectives section
         doc.add_heading('Business and Campaign Objectives', level=1)
         doc.add_paragraph(f"**Business Objective:** {st.session_state.matched_biz_obj}")
@@ -183,6 +189,8 @@ def generate_document():
 
 if input_method == "Manual Input":
     # User input
+    business_context = st.text_area("Describe your **business context** (e.g., industry, size, target audience, key challenges)", 
+                                  help="This information will help provide better context for your measurement plan")
     biz_obj = st.text_input("Describe your **business objective**")
     camp_obj = st.text_input("Describe your **campaign objective**")
 
@@ -195,6 +203,7 @@ if input_method == "Manual Input":
                 # Store matched objectives and relevant methods in session state
                 st.session_state.matched_biz_obj = matched_biz_obj
                 st.session_state.matched_camp_obj = matched_camp_obj
+                st.session_state.business_context = business_context  # Store business context
                 st.session_state.relevant_methods = df[
                     (df['Business Objective'] == matched_biz_obj) & 
                     (df['Campaign Objective'] == matched_camp_obj)
@@ -277,11 +286,11 @@ if st.session_state.objectives_matched:
             
             with col:
                 # Add checkbox for metric selection
-                if st.checkbox(method, key=f"checkbox_{method}", value=method in st.session_state.selected_metrics):
-                    if method not in st.session_state.selected_metrics:
-                        st.session_state.selected_metrics.append(method)
-                    else:
-                        st.session_state.selected_metrics.remove(method)
+                is_selected = st.checkbox(method, key=f"checkbox_{method}", value=method in st.session_state.selected_metrics)
+                if is_selected and method not in st.session_state.selected_metrics:
+                    st.session_state.selected_metrics.append(method)
+                elif not is_selected and method in st.session_state.selected_metrics:
+                    st.session_state.selected_metrics.remove(method)
                 
                 if st.button(method, key=method, help="Click for details"):
                     selected_row = df[df["Measurement Method"] == method].iloc[0]
@@ -325,11 +334,11 @@ if st.session_state.objectives_matched:
         
         with col:
             # Add checkbox for metric selection
-            if st.checkbox(method, key=f"other_checkbox_{method}", value=method in st.session_state.selected_metrics):
-                if method not in st.session_state.selected_metrics:
-                    st.session_state.selected_metrics.append(method)
-                else:
-                    st.session_state.selected_metrics.remove(method)
+            is_selected = st.checkbox(method, key=f"other_checkbox_{method}", value=method in st.session_state.selected_metrics)
+            if is_selected and method not in st.session_state.selected_metrics:
+                st.session_state.selected_metrics.append(method)
+            elif not is_selected and method in st.session_state.selected_metrics:
+                st.session_state.selected_metrics.remove(method)
             
             if st.button(method, key=f"other_button_{method}", help="Click for details"):
                 selected_row = df[df["Measurement Method"] == method].iloc[0]
@@ -343,8 +352,9 @@ if st.session_state.objectives_matched:
     if st.session_state.selected_metrics:
         st.markdown("---")
         st.subheader("📝 Selected Metrics for Measurement Plan")
+        st.markdown("The following metrics have been selected for your measurement plan:")
         for metric in st.session_state.selected_metrics:
-            st.write(f"- {metric}")
+            st.markdown(f"- {metric}")
         
         col1, col2 = st.columns([1, 4])
         with col1:
