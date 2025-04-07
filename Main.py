@@ -187,6 +187,90 @@ def generate_document():
         st.error(f"Error generating document: {str(e)}")
         return False
 
+def extract_text_from_document(uploaded_file):
+    """Extract text from uploaded document based on its type."""
+    if uploaded_file.type == "text/plain":
+        return uploaded_file.getvalue().decode("utf-8")
+    elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+        doc = docx.Document(uploaded_file)
+        return "\n".join([paragraph.text for paragraph in doc.paragraphs])
+    elif uploaded_file.type == "application/pdf":
+        pdf_reader = PyPDF2.PdfReader(uploaded_file)
+        return "\n".join([page.extract_text() for page in pdf_reader.pages])
+    return ""
+
+def chunk_text(text, max_chunk_size=4000):
+    """Split text into chunks of approximately max_chunk_size characters."""
+    words = text.split()
+    chunks = []
+    current_chunk = []
+    current_size = 0
+    
+    for word in words:
+        if current_size + len(word) + 1 > max_chunk_size:
+            chunks.append(" ".join(current_chunk))
+            current_chunk = [word]
+            current_size = len(word)
+        else:
+            current_chunk.append(word)
+            current_size += len(word) + 1
+    
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+    
+    return chunks
+
+def extract_objectives_from_chunk(chunk):
+    """Extract objectives from a text chunk using OpenAI."""
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "Extract the business objective and campaign objective from the following text. If you find objectives, format the response as 'Business Objective: [objective]' and 'Campaign Objective: [objective]'. If no objectives are found, return 'No objectives found.'"},
+                {"role": "user", "content": chunk}
+            ]
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        st.error(f"Error processing chunk: {str(e)}")
+        return "No objectives found."
+
+def process_document(uploaded_file):
+    """Process uploaded document and extract objectives."""
+    try:
+        # Extract text from document
+        content = extract_text_from_document(uploaded_file)
+        
+        # Split content into chunks
+        chunks = chunk_text(content)
+        
+        # Process each chunk
+        all_objectives = []
+        for i, chunk in enumerate(chunks):
+            with st.spinner(f"Processing document part {i+1}/{len(chunks)}..."):
+                objectives = extract_objectives_from_chunk(chunk)
+                if "No objectives found" not in objectives:
+                    all_objectives.append(objectives)
+        
+        # Combine and deduplicate objectives
+        if all_objectives:
+            # Use OpenAI to combine and deduplicate objectives
+            combined_prompt = "Combine and deduplicate these extracted objectives, keeping only the most relevant ones:\n\n" + "\n\n".join(all_objectives)
+            final_response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "Combine and deduplicate the objectives, keeping only the most relevant ones. Return exactly one business objective and one campaign objective."},
+                    {"role": "user", "content": combined_prompt}
+                ]
+            )
+            return final_response.choices[0].message.content
+        else:
+            return "No objectives found in the document."
+            
+    except Exception as e:
+        st.error(f"Error processing document: {str(e)}")
+        return None
+
 if input_method == "Manual Input":
     # User input
     business_context = st.text_area("Describe your **business context** (e.g., industry, size, target audience, key challenges)", 
@@ -215,54 +299,35 @@ else:
     uploaded_file = st.file_uploader("Upload RFP Document", type=['txt', 'docx', 'pdf'])
     
     if uploaded_file and not st.session_state.objectives_matched:
-        # Read the document content
-        if uploaded_file.type == "text/plain":
-            content = uploaded_file.getvalue().decode("utf-8")
-        elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-            doc = docx.Document(uploaded_file)
-            content = "\n".join([paragraph.text for paragraph in doc.paragraphs])
-        elif uploaded_file.type == "application/pdf":
-            pdf_reader = PyPDF2.PdfReader(uploaded_file)
-            content = ""
-            for page in pdf_reader.pages:
-                content += page.extract_text()
-
-        # Use OpenAI to extract objectives
-        try:
-            with st.spinner("Extracting objectives from document..."):
-                response = openai.ChatCompletion.create(
-                    model="gpt-4",
-                    messages=[
-                        {"role": "system", "content": "Extract the business objective and campaign objective from the following RFP text. Format the response as 'Business Objective: [objective]' and 'Campaign Objective: [objective]'"},
-                        {"role": "user", "content": content}
-                    ]
-                )
-            
-            # Parse the response
-            objectives = response.choices[0].message.content
-            biz_obj = objectives.split("Business Objective: ")[1].split("\n")[0]
-            camp_obj = objectives.split("Campaign Objective: ")[1].strip()
-            
-            st.write("Extracted Objectives:")
-            st.write(f"**Business Objective:** {biz_obj}")
-            st.write(f"**Campaign Objective:** {camp_obj}")
-            
-            # Match the extracted objectives
-            with st.spinner("Matching objectives..."):
-                matched_biz_obj, matched_camp_obj = match_objectives(biz_obj, camp_obj)
+        objectives_text = process_document(uploaded_file)
+        
+        if objectives_text and "No objectives found" not in objectives_text:
+            try:
+                # Parse the objectives
+                biz_obj = objectives_text.split("Business Objective: ")[1].split("\n")[0]
+                camp_obj = objectives_text.split("Campaign Objective: ")[1].strip()
                 
-                if matched_biz_obj and matched_camp_obj:
-                    # Store matched objectives and relevant methods in session state
-                    st.session_state.matched_biz_obj = matched_biz_obj
-                    st.session_state.matched_camp_obj = matched_camp_obj
-                    st.session_state.relevant_methods = df[
-                        (df['Business Objective'] == matched_biz_obj) & 
-                        (df['Campaign Objective'] == matched_camp_obj)
-                    ]['Measurement Method'].unique().tolist()
-                    st.session_state.objectives_matched = True
-
-        except Exception as e:
-            st.error(f"Error processing document: {str(e)}")
+                st.write("Extracted Objectives:")
+                st.write(f"**Business Objective:** {biz_obj}")
+                st.write(f"**Campaign Objective:** {camp_obj}")
+                
+                # Match the extracted objectives
+                with st.spinner("Matching objectives..."):
+                    matched_biz_obj, matched_camp_obj = match_objectives(biz_obj, camp_obj)
+                    
+                    if matched_biz_obj and matched_camp_obj:
+                        # Store matched objectives and relevant methods in session state
+                        st.session_state.matched_biz_obj = matched_biz_obj
+                        st.session_state.matched_camp_obj = matched_camp_obj
+                        st.session_state.relevant_methods = df[
+                            (df['Business Objective'] == matched_biz_obj) & 
+                            (df['Campaign Objective'] == matched_camp_obj)
+                        ]['Measurement Method'].unique().tolist()
+                        st.session_state.objectives_matched = True
+            except Exception as e:
+                st.error(f"Error parsing objectives: {str(e)}")
+        else:
+            st.warning("No objectives found in the document. Please try uploading a different document or use manual input.")
 
 # Display results if we have matched objectives
 if st.session_state.objectives_matched:
